@@ -24,7 +24,7 @@
         <module>msvc-accountant</module>
         <module>msvc-client</module>
         <module>msvc-report</module>
-        <module>msvc-user</module>
+
     </modules>
 
     <properties>
