@@ -15,7 +15,7 @@ public interface AccountantRepository extends JpaRepository<Accountant, Long> {
 
     Accountant findByEmail(String email);
 
-    @Query("SELECT a.id AS id, a.firstName AS firstName, a.email AS email, a.dni AS dni FROM Accountant a")
+    @Query("SELECT a.id AS id, a.dni AS dni, a.firstName AS firstName, a.email AS email FROM Accountant a")
     List<AccountantProjection> findAllProjection();
 
 

@@ -39,7 +39,7 @@ public class AccountantServiceImpl implements AccountantService {
             throw new RequestValidateException("Bad request", HttpStatus.BAD_REQUEST);
         }
         if (accountantRepository.findById(accountant.getId()).isEmpty()) {
-            throw new RequestValidateException("accountant no registered", HttpStatus.CONFLICT);
+            throw new RequestValidateException("Accountant no registered", HttpStatus.CONFLICT);
         }
         accountant.setUpdateOn(LocalDateTime.now());
         return accountantRepository.save(accountant);
