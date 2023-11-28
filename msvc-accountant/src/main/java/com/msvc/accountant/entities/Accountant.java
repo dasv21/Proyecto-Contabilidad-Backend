@@ -41,10 +41,10 @@ public class Accountant {
     @Column(name = "update_on")
     private LocalDateTime updateOn;
 
-    public boolean isValid() {
-        return !isStringValid(dni)
-                && !isStringValid(firstName)
-                && !isEmailValid(email);
+    public boolean valid() {
+        return isStringValid(dni)
+                || isStringValid(firstName)
+                || isEmailValid(email);
     }
 
     private boolean isStringValid(String value) {

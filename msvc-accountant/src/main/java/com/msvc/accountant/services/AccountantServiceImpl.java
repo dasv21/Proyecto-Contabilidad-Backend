@@ -2,6 +2,7 @@ package com.msvc.accountant.services;
 
 import com.msvc.accountant.entities.Accountant;
 import com.msvc.accountant.exception.RequestValidateException;
+import com.msvc.accountant.projection.AccountantProjection;
 import com.msvc.accountant.repository.AccountantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ public class AccountantServiceImpl implements AccountantService {
 
     @Override
     public Accountant create(Accountant accountant) {
-        if (accountant == null || !accountant.isValid()) {
+        if (accountant == null || accountant.valid()) {
             throw new RequestValidateException("Bad request", HttpStatus.BAD_REQUEST);
         }
         if (accountantRepository.findByDni(accountant.getDni()) != null) {
@@ -34,7 +35,7 @@ public class AccountantServiceImpl implements AccountantService {
 
     @Override
     public Accountant update(Accountant accountant) {
-        if (accountant == null || accountant.isValid()) {
+        if (accountant == null || accountant.valid()) {
             throw new RequestValidateException("Bad request", HttpStatus.BAD_REQUEST);
         }
         if (accountantRepository.findById(accountant.getId()).isEmpty()) {
@@ -45,8 +46,8 @@ public class AccountantServiceImpl implements AccountantService {
     }
 
     @Override
-    public List<Accountant> findAll() {
-        return accountantRepository.findAll();
+    public List<AccountantProjection> findAllProjection() {
+        return accountantRepository.findAllProjection();
     }
 
     @Override

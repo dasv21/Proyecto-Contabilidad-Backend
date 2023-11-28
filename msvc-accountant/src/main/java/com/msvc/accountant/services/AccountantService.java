@@ -1,6 +1,7 @@
 package com.msvc.accountant.services;
 
 import com.msvc.accountant.entities.Accountant;
+import com.msvc.accountant.projection.AccountantProjection;
 
 import java.util.List;
 
@@ -10,7 +11,8 @@ public interface AccountantService {
 
     Accountant update(Accountant accountant);
 
-    List<Accountant> findAll();
+
+    List<AccountantProjection> findAllProjection();
 
     Accountant findById(Long id);
 

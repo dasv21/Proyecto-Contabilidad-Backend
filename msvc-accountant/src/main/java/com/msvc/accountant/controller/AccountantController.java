@@ -1,6 +1,7 @@
 package com.msvc.accountant.controller;
 
 import com.msvc.accountant.entities.Accountant;
+import com.msvc.accountant.projection.AccountantProjection;
 import com.msvc.accountant.services.AccountantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,8 +29,8 @@ public class AccountantController {
 
     @GetMapping
     @ResponseBody
-    public List<Accountant> findAll(){
-        return accountantService.findAll();
+    public List<AccountantProjection> findAll(){
+        return accountantService.findAllProjection();
     }
 
     @GetMapping("{id}")
