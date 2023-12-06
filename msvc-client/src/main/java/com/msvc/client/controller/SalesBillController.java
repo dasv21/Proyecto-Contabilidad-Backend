@@ -1,47 +1,46 @@
 package com.msvc.client.controller;
 
-import com.msvc.client.entities.SalesBill;
-import com.msvc.client.projection.CompanyProjection;
-import com.msvc.client.services.SalesBillServiceImpl;
+import com.msvc.client.entities.SaleBill;
+import com.msvc.client.services.SaleBillServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/client/sales-bill")
+@RequestMapping("api/v1/client/sale-bill")
 public class SalesBillController {
 
     @Autowired
-    private SalesBillServiceImpl salesBillService;
+    private SaleBillServiceImpl saleBillService;
 
     @PostMapping
     @ResponseBody
-    public SalesBill create(@RequestBody SalesBill salesBill) {
-        return salesBillService.create(salesBill);
+    public SaleBill create(@RequestBody SaleBill saleBill) {
+        return saleBillService.create(saleBill);
     }
 
     @PutMapping
     @ResponseBody
-    public SalesBill update(@RequestBody SalesBill salesBill) {
-        return salesBillService.update(salesBill);
+    public SaleBill update(@RequestBody SaleBill saleBill) {
+        return saleBillService.update(saleBill);
     }
 
     @GetMapping
     @ResponseBody
-    public List<SalesBill> findAll(){
-        return salesBillService.findAll();
+    public List<SaleBill> findAll(){
+        return saleBillService.findAll();
     }
 
 
     @GetMapping("{id}")
     @ResponseBody
-    public SalesBill findById(@PathVariable Long id){
-        return salesBillService.findById(id);
+    public SaleBill findById(@PathVariable Long id){
+        return saleBillService.findById(id);
     }
 
     @DeleteMapping("{id}")
     public void deleteByid(@PathVariable Long id){
-        salesBillService.delete(id);
+        saleBillService.delete(id);
     }
 }

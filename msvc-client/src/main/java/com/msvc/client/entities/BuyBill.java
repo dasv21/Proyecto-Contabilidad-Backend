@@ -15,8 +15,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "sales_bill")
-public class SalesBill {
+@Table(name = "buy_bill")
+public class BuyBill {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,11 +27,11 @@ public class SalesBill {
     @Column(name = "num_control")
     private String numControl;
 
-    @Column(name = "name_consumer")
-    private String nameConsumer;
+    @Column(name = "name_provider")
+    private String nameProvider;
 
-    @Column(name = "rif_consumer")
-    private String rifConsumer;
+    @Column(name = "rif_provider")
+    private String rifProvider;
 
     @Column(name = "date_created_on")
     private LocalDate dateCreatedOn;
@@ -39,8 +39,8 @@ public class SalesBill {
     @Column(name = "date_application_on")
     private LocalDate dateApplicationOn;
 
-    @Column(name = "sale_type")
-    private String saleType;
+    @Column(name = "buy_type")
+    private String buyType;
 
     @Column(name = "transaction_type")
     private String transactionType;
@@ -51,8 +51,11 @@ public class SalesBill {
     @Column(name = "iva_amount")
     private BigDecimal ivaAmount;
 
-    @Column(name = "total_sale")
-    private BigDecimal totalSale;
+    @Column(name = "total_Buy")
+    private BigDecimal totalBuy;
+
+    @Column(name = "tax_especial")
+    private BigDecimal taxEspecial;
 
     private String observation;
 
