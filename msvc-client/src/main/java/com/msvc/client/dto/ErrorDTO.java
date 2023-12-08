@@ -1,4 +1,4 @@
-package com.msvc.bill.dto;
+package com.msvc.client.dto;
 
 import lombok.Builder;
 import lombok.Data;

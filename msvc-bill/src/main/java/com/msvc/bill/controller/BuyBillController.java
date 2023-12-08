@@ -1,7 +1,6 @@
 package com.msvc.bill.controller;
 
 import com.msvc.bill.entities.BuyBill;
-import com.msvc.bill.entities.SaleBill;
 import com.msvc.bill.services.BuyBillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

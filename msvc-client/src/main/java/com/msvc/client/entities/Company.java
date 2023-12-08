@@ -1,4 +1,4 @@
-package com.msvc.bill.entities;
+package com.msvc.client.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

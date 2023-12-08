@@ -1,7 +1,7 @@
-package com.msvc.bill.services;
+package com.msvc.client.services;
 
-import com.msvc.bill.entities.Company;
-import com.msvc.bill.projection.CompanyProjection;
+import com.msvc.client.entities.Company;
+import com.msvc.client.projection.CompanyProjection;
 
 import java.util.List;
 

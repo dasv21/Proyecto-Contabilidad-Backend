@@ -1,4 +1,4 @@
-package com.msvc.bill.exception;
+package com.msvc.client.exception;
 
 import lombok.Getter;
 import lombok.Setter;

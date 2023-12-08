@@ -1,7 +1,7 @@
-package com.msvc.bill.repository;
+package com.msvc.client.repository;
 
-import com.msvc.bill.entities.Company;
-import com.msvc.bill.projection.CompanyProjection;
+import com.msvc.client.entities.Company;
+import com.msvc.client.projection.CompanyProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

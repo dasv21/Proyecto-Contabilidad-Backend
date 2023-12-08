@@ -1,4 +1,4 @@
-package com.msvc.bill.projection;
+package com.msvc.client.projection;
 
 public interface CompanyProjection {
     Long getId();

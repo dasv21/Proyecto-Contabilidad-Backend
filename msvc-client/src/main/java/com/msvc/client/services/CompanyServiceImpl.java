@@ -1,9 +1,9 @@
-package com.msvc.bill.services;
+package com.msvc.client.services;
 
-import com.msvc.bill.entities.Company;
-import com.msvc.bill.exception.RequestValidateException;
-import com.msvc.bill.projection.CompanyProjection;
-import com.msvc.bill.repository.CompanyRepository;
+import com.msvc.client.entities.Company;
+import com.msvc.client.exception.RequestValidateException;
+import com.msvc.client.projection.CompanyProjection;
+import com.msvc.client.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

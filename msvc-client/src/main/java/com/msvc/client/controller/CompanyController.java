@@ -1,8 +1,8 @@
-package com.msvc.bill.controller;
+package com.msvc.client.controller;
 
-import com.msvc.bill.entities.Company;
-import com.msvc.bill.projection.CompanyProjection;
-import com.msvc.bill.services.CompanyServiceImpl;
+import com.msvc.client.entities.Company;
+import com.msvc.client.projection.CompanyProjection;
+import com.msvc.client.services.CompanyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

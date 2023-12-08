@@ -1,7 +1,7 @@
-package com.msvc.bill.controller;
+package com.msvc.client.controller;
 
-import com.msvc.bill.dto.ErrorDTO;
-import com.msvc.bill.exception.RequestValidateException;
+import com.msvc.client.dto.ErrorDTO;
+import com.msvc.client.exception.RequestValidateException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
