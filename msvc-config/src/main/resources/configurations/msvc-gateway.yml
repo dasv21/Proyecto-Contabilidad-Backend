@@ -22,3 +22,7 @@ spring:
           uri: http://localhost:9191
           predicates:
             - Path=/api/v1/client/**
+        - id: bill
+          uri: http://localhost:9393
+          predicates:
+            - Path=/api/v1/bill/**

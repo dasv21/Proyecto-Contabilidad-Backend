@@ -7,11 +7,11 @@
 		<artifactId>ProyectoContabilidad</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<groupId>com.msvc.client</groupId>
-	<artifactId>msvc-client</artifactId>
+	<groupId>com.msvc.bill</groupId>
+	<artifactId>msvc-bill</artifactId>
 	<version>1.0.0</version>
-	<name>msvc-client</name>
-	<description>MSVC Client</description>
+	<name>msvc-bill</name>
+	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>2022.0.4</spring-cloud.version>

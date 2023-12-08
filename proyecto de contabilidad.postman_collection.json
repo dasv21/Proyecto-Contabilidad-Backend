@@ -273,9 +273,14 @@
 							"response": []
 						}
 					]
-				},
+				}
+			]
+		},
+		{
+			"name": "bill",
+			"item": [
 				{
-					"name": "salesBill",
+					"name": "buyBill",
 					"item": [
 						{
 							"name": "created",
@@ -284,7 +289,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"number\": \"12345\",\n  \"numControl\": \"ABC123\",\n  \"nameConsumer\": \"John Doe\",\n  \"rifConsumer\": \"J-12345678-9\",\n  \"dateCreatedOn\": \"2023-12-05\",\n  \"dateApplicationOn\": \"2023-12-05\",\n  \"saleType\": \"Sale\",\n  \"transactionType\": \"Cash\",\n  \"exemptAmount\": \"100.00\",\n  \"ivaAmount\": \"16.00\",\n  \"totalSale\": \"116.00\",\n  \"observation\": \"This is an observation\"\n}",
+									"raw": "{\n    \"number\": \"12345\",\n    \"numControl\": \"ABC123\",\n    \"nameProvider\": \"John Doe\",\n    \"rifProvider\": \"J-12345678-9\",\n    \"dateCreatedOn\": \"2023-12-05\",\n    \"dateApplicationOn\": \"2023-12-05\",\n    \"buyType\": \"Buy\",\n    \"transactionType\": \"Cash\",\n    \"exemptAmount\": \"100.00\",\n    \"ivaAmount\": \"16.00\",\n    \"totalBuy\": \"116.00\",\n    \"taxEspecial\": \"1.00\",\n    \"observation\": \"This is an observation\",\n    \"companyId\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -292,7 +297,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/api/v1/client/sales-bill",
+									"raw": "http://localhost:8080/api/v1/bill/buy-bill",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -301,8 +306,8 @@
 									"path": [
 										"api",
 										"v1",
-										"client",
-										"sales-bill"
+										"bill",
+										"buy-bill"
 									]
 								}
 							},
@@ -314,7 +319,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/api/v1/client/sales-bill",
+									"raw": "http://localhost:8080/api/v1/bill/buy-bill",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -323,8 +328,8 @@
 									"path": [
 										"api",
 										"v1",
-										"client",
-										"sales-bill"
+										"bill",
+										"buy-bill"
 									]
 								}
 							},
@@ -337,7 +342,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "    {\n        \"id\": 1,\n        \"number\": \"12345\",\n        \"numControl\": \"ABC123\",\n        \"nameConsumer\": \"John Doe UPDATEEEE\",\n        \"rifConsumer\": \"J-12345678-9\",\n        \"dateCreatedOn\": \"2023-12-05\",\n        \"dateApplicationOn\": \"2023-12-05\",\n        \"saleType\": \"Sale\",\n        \"transactionType\": \"Cash\",\n        \"exemptAmount\": 100.00,\n        \"ivaAmount\": 16.00,\n        \"totalSale\": 116.00,\n        \"observation\": \"This is an observation\",\n        \"company\": null\n    }",
+									"raw": "{\n    \"id\": 1,\n    \"number\": \"12345\",\n    \"numControl\": \"ABC123\",\n    \"nameProvider\": \"John update buy\",\n    \"rifProvider\": null,\n    \"dateCreatedOn\": \"2023-12-05\",\n    \"dateApplicationOn\": \"2023-12-05\",\n    \"buyType\": \"Buy\",\n    \"transactionType\": \"Cash\",\n    \"exemptAmount\": 100.00,\n    \"ivaAmount\": 16.00,\n    \"totalBuy\": null,\n    \"taxEspecial\": 1.00,\n    \"observation\": \"This is an observation\",\n    \"companyId\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -345,7 +350,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/api/v1/client/sales-bill",
+									"raw": "http://localhost:8080/api/v1/bill/buy-bill",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -354,8 +359,8 @@
 									"path": [
 										"api",
 										"v1",
-										"client",
-										"sales-bill"
+										"bill",
+										"buy-bill"
 									]
 								}
 							},
@@ -367,7 +372,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/api/v1/client/sales-bill/1",
+									"raw": "http://localhost:8080/api/v1/bill/buy-bill/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -376,8 +381,8 @@
 									"path": [
 										"api",
 										"v1",
-										"client",
-										"sales-bill",
+										"bill",
+										"buy-bill",
 										"1"
 									]
 								}
@@ -390,7 +395,7 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/api/v1/client/sales-bill/1",
+									"raw": "http://localhost:8080/api/v1/bill/buy-bill/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -399,8 +404,143 @@
 									"path": [
 										"api",
 										"v1",
-										"client",
-										"sales-bill",
+										"bill",
+										"buy-bill",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "saleBill",
+					"item": [
+						{
+							"name": "created",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"number\": \"12345\",\n  \"numControl\": \"ABC123\",\n  \"nameConsumer\": \"John Doe\",\n  \"rifConsumer\": \"J-12345678-9\",\n  \"dateCreatedOn\": \"2023-12-05\",\n  \"dateApplicationOn\": \"2023-12-05\",\n  \"saleType\": \"Sale\",\n  \"transactionType\": \"Cash\",\n  \"exemptAmount\": \"100.00\",\n  \"ivaAmount\": \"16.00\",\n  \"totalSale\": \"116.00\",\n  \"observation\": \"This is an observation\",\n  \"companyId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/bill/sale-bill",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"bill",
+										"sale-bill"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/bill/sale-bill",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"bill",
+										"sale-bill"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\n        \"id\": 1,\n        \"number\": \"12345\",\n        \"numControl\": \"ABC123\",\n        \"nameConsumer\": \"John Doe UPDATEEEE\",\n        \"rifConsumer\": \"J-12345678-9\",\n        \"dateCreatedOn\": \"2023-12-05\",\n        \"dateApplicationOn\": \"2023-12-05\",\n        \"saleType\": \"Sale\",\n        \"transactionType\": \"Cash\",\n        \"exemptAmount\": 100.00,\n        \"ivaAmount\": 16.00,\n        \"totalSale\": 116.00,\n        \"observation\": \"This is an observation\",\n        \"companyId\": 1\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/bill/sale-bill",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"bill",
+										"sale-bill"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FindById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/bill/sale-bill/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"bill",
+										"sale-bill",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/bill/sale-bill/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"bill",
+										"sale-bill",
 										"1"
 									]
 								}
