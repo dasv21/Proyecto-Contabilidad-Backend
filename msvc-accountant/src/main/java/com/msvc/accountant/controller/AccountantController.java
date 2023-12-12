@@ -1,12 +1,10 @@
 package com.msvc.accountant.controller;
 
 import com.msvc.accountant.entities.Accountant;
-import com.msvc.accountant.projection.AccountantProjection;
 import com.msvc.accountant.services.AccountantService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/accountant")
@@ -17,26 +15,26 @@ public class AccountantController {
 
     @PostMapping
     @ResponseBody
-    public Accountant create(@RequestBody Accountant accountant) {
-        return accountantService.create(accountant);
+    public ResponseEntity<?> create(@RequestBody Accountant accountant) {
+        return ResponseEntity.ok(accountantService.create(accountant));
     }
 
     @PutMapping
     @ResponseBody
-    public Accountant update(@RequestBody Accountant accountant) {
-        return accountantService.update(accountant);
+    public ResponseEntity<?> update(@RequestBody Accountant accountant) {
+        return ResponseEntity.ok(accountantService.update(accountant));
     }
 
     @GetMapping
     @ResponseBody
-    public List<AccountantProjection> findAll(){
-        return accountantService.findAllProjection();
+    public ResponseEntity<?> findAll(){
+        return ResponseEntity.ok(accountantService.findAllProjection());
     }
 
     @GetMapping("{id}")
     @ResponseBody
-    public Accountant findById(@PathVariable Long id){
-        return accountantService.findById(id);
+    public ResponseEntity<?> findById(@PathVariable Long id){
+        return ResponseEntity.ok(accountantService.findById(id));
     }
 
     @DeleteMapping("{id}")

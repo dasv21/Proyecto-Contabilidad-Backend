@@ -1,46 +1,40 @@
 package com.msvc.client.controller;
 
 import com.msvc.client.entities.Company;
-import com.msvc.client.projection.CompanyProjection;
-import com.msvc.client.services.CompanyServiceImpl;
+import com.msvc.client.services.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/client/company")
 public class CompanyController {
 
     @Autowired
-    private CompanyServiceImpl companyService;
+    private CompanyService companyService;
 
     @PostMapping
-    @ResponseBody
-    public Company create(@RequestBody Company company) {
-        return companyService.create(company);
+    public ResponseEntity<?> create(@RequestBody Company company) {
+        return ResponseEntity.ok(companyService.create(company));
     }
 
     @PutMapping
-    @ResponseBody
-    public Company update(@RequestBody Company company) {
-        return companyService.update(company);
+    public ResponseEntity<?> update(@RequestBody Company company) {
+        return ResponseEntity.ok(companyService.update(company));
     }
 
     @GetMapping
-    @ResponseBody
-    public List<CompanyProjection> findAll(){
-        return companyService.findAllProjection();
+    public ResponseEntity<?> findAll() {
+        return ResponseEntity.ok(companyService.findAllProjection());
     }
 
     @GetMapping("{id}")
-    @ResponseBody
-    public Company findById(@PathVariable Long id){
-        return companyService.findById(id);
+    public ResponseEntity<?> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(companyService.findById(id));
     }
 
     @DeleteMapping("{id}")
-    public void deleteByid(@PathVariable Long id){
+    public void deleteById(@PathVariable Long id) {
         companyService.delete(id);
     }
 }

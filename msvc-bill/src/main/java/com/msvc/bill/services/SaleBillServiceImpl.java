@@ -1,6 +1,7 @@
 package com.msvc.bill.services;
 
 import com.msvc.bill.entities.SaleBill;
+import com.msvc.bill.projection.SaleBillProjection;
 import com.msvc.bill.repository.SaleBillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,8 +29,8 @@ public class SaleBillServiceImpl implements SaleBillService {
     }
 
     @Override
-    public List<SaleBill> findAll(){
-        return saleBillRepository.findAll();
+    public List<SaleBillProjection> findAll(){
+        return saleBillRepository.findAllProjection();
     }
 
     @Override

@@ -3,9 +3,8 @@ package com.msvc.bill.controller;
 import com.msvc.bill.entities.BuyBill;
 import com.msvc.bill.services.BuyBillService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/bill/buy-bill")
@@ -15,32 +14,30 @@ public class BuyBillController {
     private BuyBillService buyBillService;
 
     @PostMapping
-    @ResponseBody
-    public BuyBill create(@RequestBody BuyBill buyBill) {
-        return buyBillService.create(buyBill);
+    public ResponseEntity<?> create(@RequestBody BuyBill buyBill) {
+        return ResponseEntity.ok(buyBillService.create(buyBill));
     }
 
     @PutMapping
-    @ResponseBody
-    public BuyBill update(@RequestBody BuyBill buyBill) {
-        return buyBillService.update(buyBill);
+    public ResponseEntity<?> update(@RequestBody BuyBill buyBill) {
+        return ResponseEntity.ok(buyBillService.update(buyBill));
     }
 
     @GetMapping
     @ResponseBody
-    public List<BuyBill> findAll(){
-        return buyBillService.findAll();
+    public ResponseEntity<?> findAll() {
+        return ResponseEntity.ok(buyBillService.findAll());
     }
 
 
     @GetMapping("{id}")
     @ResponseBody
-    public BuyBill findById(@PathVariable Long id){
-        return buyBillService.findById(id);
+    public ResponseEntity<?> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(buyBillService.findById(id));
     }
 
     @DeleteMapping("{id}")
-    public void deleteByid(@PathVariable Long id){
+    public void deleteById(@PathVariable Long id) {
         buyBillService.delete(id);
     }
 }

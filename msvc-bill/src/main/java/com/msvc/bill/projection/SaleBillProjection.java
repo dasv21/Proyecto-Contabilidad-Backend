@@ -1,6 +1,6 @@
 package com.msvc.bill.projection;
 
-public interface BuyBillProjection {
+public interface SaleBillProjection {
 
     Long getId();
 
@@ -8,9 +8,9 @@ public interface BuyBillProjection {
 
     String getNumControl();
 
-    String getNameProvider();
+    String getNameConsumer();
 
-    String getRifProvider();
+    String getRifConsumer();
 
     String getCompanyId();
 }
