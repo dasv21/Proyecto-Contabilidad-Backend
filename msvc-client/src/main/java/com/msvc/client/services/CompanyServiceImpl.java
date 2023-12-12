@@ -1,7 +1,10 @@
 package com.msvc.client.services;
 
+import com.msvc.client.client.BillClient;
+import com.msvc.client.dto.BuyBillDTO;
 import com.msvc.client.entities.Company;
 import com.msvc.client.exception.RequestValidateException;
+import com.msvc.client.http.response.BuyBillByCompanyResponse;
 import com.msvc.client.projection.CompanyProjection;
 import com.msvc.client.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +19,9 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Autowired
     private CompanyRepository companyRepository;
+
+    @Autowired
+    private BillClient billClient;
 
     @Override
     public Company create(Company company) {
@@ -58,6 +64,20 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public void delete(Long id) {
         companyRepository.deleteById(id);
+    }
+
+    @Override
+    public BuyBillByCompanyResponse findBuyBillByIdCompany(Long companyId) {
+
+        Company company = companyRepository.findById(companyId).orElseThrow();
+
+        List<BuyBillDTO> buyBillDTOList = billClient.findAllBuyBillByCompany(companyId);
+
+        return BuyBillByCompanyResponse.builder()
+                .companyLegalName(company.getLegalName())
+                .companyRif(company.getRif())
+                .buyBillDTOList(buyBillDTOList)
+                .build();
     }
 }
 

@@ -1,10 +1,10 @@
 package com.msvc.client.services;
 
 import com.msvc.client.entities.Company;
+import com.msvc.client.http.response.BuyBillByCompanyResponse;
 import com.msvc.client.projection.CompanyProjection;
 
 import java.util.List;
-
 
 public interface CompanyService {
 
@@ -12,10 +12,11 @@ public interface CompanyService {
 
     Company update(Company company);
 
-
     List<CompanyProjection> findAllProjection();
 
     Company findById(Long id);
 
     void delete(Long id);
+
+    BuyBillByCompanyResponse findBuyBillByIdCompany(Long companyId);
 }

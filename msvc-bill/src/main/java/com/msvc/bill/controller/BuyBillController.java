@@ -24,16 +24,18 @@ public class BuyBillController {
     }
 
     @GetMapping
-    @ResponseBody
     public ResponseEntity<?> findAll() {
         return ResponseEntity.ok(buyBillService.findAll());
     }
 
-
     @GetMapping("{id}")
-    @ResponseBody
     public ResponseEntity<?> findById(@PathVariable Long id) {
         return ResponseEntity.ok(buyBillService.findById(id));
+    }
+
+    @GetMapping("company/{companyId}")
+    public ResponseEntity<?> findAllByCompanyId(@PathVariable Long companyId){
+        return ResponseEntity.ok(buyBillService.findAllByCompanyId(companyId));
     }
 
     @DeleteMapping("{id}")

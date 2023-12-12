@@ -34,6 +34,11 @@ public class BuyBillServiceImpl implements BuyBillService {
     }
 
     @Override
+    public List<BuyBill> findAllByCompanyId(Long companyId) {
+        return buyBillRepository.findAllByCompanyId(companyId);
+    }
+
+    @Override
     public BuyBill findById(Long id) {
         return buyBillRepository.findById(id).orElse(null);
     }
