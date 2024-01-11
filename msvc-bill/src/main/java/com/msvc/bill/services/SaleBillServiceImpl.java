@@ -39,6 +39,11 @@ public class SaleBillServiceImpl implements SaleBillService {
     }
 
     @Override
+    public List<SaleBill> findAllByCompanyId(Long companyId) {
+        return saleBillRepository.findAllByCompanyId(companyId);
+    }
+
+    @Override
     public void delete(Long id) {
         saleBillRepository.deleteById(id);
     }

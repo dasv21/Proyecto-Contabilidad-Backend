@@ -15,5 +15,7 @@ public interface SaleBillService {
 
     List<SaleBillProjection> findAll();
 
+    List<SaleBill> findAllByCompanyId(Long companyId);
+
     void delete(Long id);
 }

@@ -38,6 +38,11 @@ public class CompanyController {
         return ResponseEntity.ok(companyService.findBuyBillByIdCompany(companyId));
     }
 
+    @GetMapping("/sale-bill/{companyId}")
+    public ResponseEntity<?> findSaleBillByIdCompany(@PathVariable Long companyId){
+        return ResponseEntity.ok(companyService.findSaleBillByIdCompany(companyId));
+    }
+
     @DeleteMapping("{id}")
     public void deleteById(@PathVariable Long id) {
         companyService.delete(id);
