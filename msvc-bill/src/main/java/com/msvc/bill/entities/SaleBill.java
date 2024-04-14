@@ -22,7 +22,8 @@ public class SaleBill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String number;
+    @Column(name = "num_bill")
+    private String numBill;
 
     @Column(name = "num_control")
     private String numControl;

@@ -13,6 +13,6 @@ public interface SaleBillRepository extends JpaRepository<SaleBill, Long> {
 
     List<SaleBill> findAllByCompanyId(Long companyId);
 
-    @Query("SELECT b.id AS id, b.number AS number, b.numControl AS numControl, b.nameConsumer AS nameConsumer, b.rifConsumer AS rifConsumer, b.companyId AS companyId FROM SaleBill b")
+    @Query("SELECT b.id AS id, b.numBill AS numBill, b.numControl AS numControl, b.nameConsumer AS nameConsumer, b.rifConsumer AS rifConsumer, b.companyId AS companyId FROM SaleBill b")
     List<SaleBillProjection> findAllProjection();
 }

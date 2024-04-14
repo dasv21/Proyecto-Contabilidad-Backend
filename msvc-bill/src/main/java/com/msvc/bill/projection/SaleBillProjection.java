@@ -4,7 +4,7 @@ public interface SaleBillProjection {
 
     Long getId();
 
-    String getNumber();
+    String getNumBill();
 
     String getNumControl();
 

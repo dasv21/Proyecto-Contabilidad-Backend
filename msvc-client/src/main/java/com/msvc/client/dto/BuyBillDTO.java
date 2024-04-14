@@ -13,7 +13,7 @@ public class BuyBillDTO {
 
     Long id;
 
-    String number;
+    String numBill;
 
     String numControl;
 
