@@ -25,7 +25,7 @@
         <module>msvc-client</module>
         <module>msvc-report</module>
         <module>msvc-bill</module>
-
+        <module>msvc-authentication</module>
 
     </modules>
 
