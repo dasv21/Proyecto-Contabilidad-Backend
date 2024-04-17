@@ -10,10 +10,19 @@
 			"name": "accountant",
 			"item": [
 				{
-					"name": "findAll",
+					"name": "create",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dni\": \"V123456\",\n    \"firstName\": \"david\",\n    \"lastName\": \"santiago\",\n    \"email\": \"davidsantiago@gmail.com\",\n    \"address\": \"Monay\",\n    \"phone\": \"426555555\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:8080/api/v1/accountant",
 							"protocol": "http",
@@ -31,19 +40,10 @@
 					"response": []
 				},
 				{
-					"name": "create",
+					"name": "findAll",
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"dni\": \"V123456\",\n    \"firstName\": \"david\",\n    \"lastName\": \"santiago\",\n    \"email\": \"davidsantiago@gmail.com\",\n    \"address\": \"Monay\",\n    \"phone\": \"426555555\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "http://localhost:8080/api/v1/accountant",
 							"protocol": "http",
@@ -143,10 +143,19 @@
 					"name": "company",
 					"item": [
 						{
-							"name": "findAll",
+							"name": "create",
 							"request": {
-								"method": "GET",
+								"method": "POST",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"rif\": \"j-123456\",\n    \"shortName\": \"santiago\",\n    \"legalName\": \"santiago C.A\",\n    \"email\": \"santiago@company.com\",\n    \"phones\": [\n        \"+58 412 3456789\",\n        \"+58 212 9876543\"\n    ],\n    \"address\": \"Avenida Principal, Edificio Acme, Piso 10, Caracas, Venezuela\",\n    \"accountant\": \"Juan Perez\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
 									"raw": "http://localhost:8080/api/v1/client/company",
 									"protocol": "http",
@@ -165,19 +174,10 @@
 							"response": []
 						},
 						{
-							"name": "create",
+							"name": "findAll",
 							"request": {
-								"method": "POST",
+								"method": "GET",
 								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"rif\": \"j-123456\",\n    \"shortName\": \"santiago\",\n    \"legalName\": \"santiago C.A\",\n    \"email\": \"santiago@company.com\",\n    \"phones\": [\n        \"+58 412 3456789\",\n        \"+58 212 9876543\"\n    ],\n    \"address\": \"Avenida Principal, Edificio Acme, Piso 10, Caracas, Venezuela\",\n    \"accountant\": \"Juan Perez\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
 								"url": {
 									"raw": "http://localhost:8080/api/v1/client/company",
 									"protocol": "http",
@@ -271,6 +271,54 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "findBuyBillByCompanyId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/client/company/buy-bill/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"client",
+										"company",
+										"buy-bill",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findSaleBillByCompanyId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/client/company/sale-bill/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"client",
+										"company",
+										"sale-bill",
+										"1"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
@@ -289,7 +337,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"number\": \"12345\",\n    \"numControl\": \"ABC123\",\n    \"nameProvider\": \"John Doe\",\n    \"rifProvider\": \"J-12345678-9\",\n    \"dateCreatedOn\": \"2023-12-05\",\n    \"dateApplicationOn\": \"2023-12-05\",\n    \"buyType\": \"Buy\",\n    \"transactionType\": \"Cash\",\n    \"exemptAmount\": \"100.00\",\n    \"ivaAmount\": \"16.00\",\n    \"totalBuy\": \"116.00\",\n    \"taxEspecial\": \"1.00\",\n    \"observation\": \"This is an observation\",\n    \"companyId\": 1\n}",
+									"raw": "{\n    \"numBill\": \"12345\",\n    \"numControl\": \"ABC123\",\n    \"nameProvider\": \"John Doe\",\n    \"rifProvider\": \"J-12345678-9\",\n    \"dateCreatedOn\": \"2023-12-05\",\n    \"dateApplicationOn\": \"2023-12-05\",\n    \"buyType\": \"Buy\",\n    \"transactionType\": \"Cash\",\n    \"exemptAmount\": \"100.00\",\n    \"ivaAmount\": \"16.00\",\n    \"totalBuy\": \"116.00\",\n    \"taxEspecial\": \"1.00\",\n    \"observation\": \"This is an observation\",\n    \"companyId\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -342,7 +390,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"id\": 1,\n    \"number\": \"12345\",\n    \"numControl\": \"ABC123\",\n    \"nameProvider\": \"John update buy\",\n    \"rifProvider\": null,\n    \"dateCreatedOn\": \"2023-12-05\",\n    \"dateApplicationOn\": \"2023-12-05\",\n    \"buyType\": \"Buy\",\n    \"transactionType\": \"Cash\",\n    \"exemptAmount\": 100.00,\n    \"ivaAmount\": 16.00,\n    \"totalBuy\": null,\n    \"taxEspecial\": 1.00,\n    \"observation\": \"This is an observation\",\n    \"companyId\": 1\n}",
+									"raw": "{\n    \"id\": 1,\n    \"numBill\": \"12345\",\n    \"numControl\": \"ABC123\",\n    \"nameProvider\": \"John update buy\",\n    \"rifProvider\": null,\n    \"dateCreatedOn\": \"2023-12-05\",\n    \"dateApplicationOn\": \"2023-12-05\",\n    \"buyType\": \"Buy\",\n    \"transactionType\": \"Cash\",\n    \"exemptAmount\": 100.00,\n    \"ivaAmount\": 16.00,\n    \"totalBuy\": null,\n    \"taxEspecial\": 1.00,\n    \"observation\": \"This is an observation\",\n    \"companyId\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -411,6 +459,30 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "findByCompanyId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/bill/buy-bill/company/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"bill",
+										"buy-bill",
+										"company",
+										"1"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -424,7 +496,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"number\": \"12345\",\n  \"numControl\": \"ABC123\",\n  \"nameConsumer\": \"John Doe\",\n  \"rifConsumer\": \"J-12345678-9\",\n  \"dateCreatedOn\": \"2023-12-05\",\n  \"dateApplicationOn\": \"2023-12-05\",\n  \"saleType\": \"Sale\",\n  \"transactionType\": \"Cash\",\n  \"exemptAmount\": \"100.00\",\n  \"ivaAmount\": \"16.00\",\n  \"totalSale\": \"116.00\",\n  \"observation\": \"This is an observation\",\n  \"companyId\": 1\n}",
+									"raw": "{\n  \"numBill\": \"12345\",\n  \"numControl\": \"ABC123\",\n  \"nameConsumer\": \"John Doe\",\n  \"rifConsumer\": \"J-12345678-9\",\n  \"dateCreatedOn\": \"2023-12-05\",\n  \"dateApplicationOn\": \"2023-12-05\",\n  \"saleType\": \"Sale\",\n  \"transactionType\": \"Cash\",\n  \"exemptAmount\": \"100.00\",\n  \"ivaAmount\": \"16.00\",\n  \"totalSale\": \"116.00\",\n  \"observation\": \"This is an observation\",\n  \"companyId\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -542,6 +614,30 @@
 										"bill",
 										"sale-bill",
 										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findByCompanyId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/bill/sale-bill/company/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"bill",
+										"sale-bill",
+										"company",
+										"5"
 									]
 								}
 							},
