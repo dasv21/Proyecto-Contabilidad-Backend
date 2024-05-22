@@ -10,6 +10,19 @@ spring:
     name: msvc-gateway
   cloud:
     gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3000" #Aqui tengo que colocar la ruta de la app que va a consumir mis api
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - PATCH
+              - HEAD
+              - OPTIONS
+
       discovery:
         locator:
           enable: true
@@ -33,8 +46,8 @@ spring:
           uri: lb://msvc-bill
           predicates:
             - Path=/api/v1/bill/**
-          filters:
-            - AuthenticationFilter
+          #filters:
+          #  - AuthenticationFilter
 
         - id: authentication
           uri: lb://msvc-authentication
