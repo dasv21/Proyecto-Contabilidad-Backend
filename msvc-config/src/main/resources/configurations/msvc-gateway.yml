@@ -13,7 +13,7 @@ spring:
       globalcors:
         corsConfigurations:
           '[/**]':
-            allowedOrigins: "http://localhost:3000" #Aqui tengo que colocar la ruta de la app que va a consumir mis api
+            allowedOrigins: "http://localhost:3000" # Aquí tienes que colocar la ruta de la app que va a consumir tus APIs
             allowedMethods:
               - GET
               - POST
@@ -22,6 +22,14 @@ spring:
               - PATCH
               - HEAD
               - OPTIONS
+            allowedHeaders:
+              - "*"
+            exposedHeaders:
+              - "Authorization"
+              - "Cache-Control"
+              - "Content-Type"
+              - "Access-Control-Allow-Origin"
+            allowCredentials: true
 
       discovery:
         locator:
@@ -32,15 +40,15 @@ spring:
           uri: lb://msvc-accountant
           predicates:
             - Path=/api/v1/accountant/**
-          filters:
-            - AuthenticationFilter
+          #filters:
+          #  - AuthenticationFilter # Este es el filtro de autenticacion desativado mientras hago las patallas
 
         - id: client
           uri: lb://msvc-client
           predicates:
             - Path=/api/v1/client/**
-          filters:
-            - AuthenticationFilter
+          #filters:
+          #  - AuthenticationFilter
 
         - id: bill
           uri: lb://msvc-bill
