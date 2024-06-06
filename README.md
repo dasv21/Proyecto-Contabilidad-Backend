@@ -1,6 +1,6 @@
 # Proyecto Contabilidad Backend ApiRest Microservices
 
-Esta es parte de un proyecto que se esta realizando para una firma de contadores. Se trata de una aplicación web
+Esta es parte Backend de un proyecto que se esta realizando para una firma de contadores. Se trata de una aplicación web
 que gestiona facturas de clientes se le asignan y guarda la indormacion de facturación de cada empresa.
 
 ## Tecnologias aplicadas:
