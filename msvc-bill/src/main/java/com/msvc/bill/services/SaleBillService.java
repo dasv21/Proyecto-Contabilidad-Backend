@@ -5,6 +5,9 @@ import com.msvc.bill.projection.SaleBillProjection;
 
 import java.util.List;
 
+/**
+ * @author David Santiago
+ */
 public interface SaleBillService {
 
     SaleBill create(SaleBill saleBill);

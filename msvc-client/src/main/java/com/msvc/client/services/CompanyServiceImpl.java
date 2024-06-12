@@ -16,6 +16,9 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * @author David Santiago
+ */
 @Service
 public class CompanyServiceImpl implements CompanyService {
 

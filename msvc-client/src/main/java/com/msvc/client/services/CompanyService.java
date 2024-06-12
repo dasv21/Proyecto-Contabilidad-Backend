@@ -7,6 +7,9 @@ import com.msvc.client.projection.CompanyProjection;
 
 import java.util.List;
 
+/**
+ * @author David Santiago
+ */
 public interface CompanyService {
 
     Company create(Company company);

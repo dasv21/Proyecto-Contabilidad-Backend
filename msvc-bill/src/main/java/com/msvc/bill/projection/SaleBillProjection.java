@@ -1,5 +1,8 @@
 package com.msvc.bill.projection;
 
+/**
+ * @author David Santiago
+ */
 public interface SaleBillProjection {
 
     Long getId();

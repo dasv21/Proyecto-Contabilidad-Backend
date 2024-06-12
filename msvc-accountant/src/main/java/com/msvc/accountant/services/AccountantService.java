@@ -5,6 +5,9 @@ import com.msvc.accountant.projection.AccountantProjection;
 
 import java.util.List;
 
+/**
+ * @author David Santiago
+ */
 public interface AccountantService {
 
     Accountant create(Accountant accountant);

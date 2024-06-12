@@ -15,6 +15,9 @@ import java.util.Map;
 import java.util.function.Function;
 
 
+/**
+ * @author David Santiago
+ */
 @Service
 public class JwtService {
 

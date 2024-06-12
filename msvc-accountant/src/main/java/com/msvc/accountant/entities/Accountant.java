@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+/**
+ * @author David Santiago
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

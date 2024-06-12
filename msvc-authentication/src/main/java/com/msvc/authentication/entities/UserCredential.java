@@ -14,6 +14,9 @@ import java.util.List;
 
 // TODO -> Validar que no permita crear un usuario con el campo username vacio
 
+/**
+ * @author David Santiago
+ */
 @Data
 @Builder
 @NoArgsConstructor

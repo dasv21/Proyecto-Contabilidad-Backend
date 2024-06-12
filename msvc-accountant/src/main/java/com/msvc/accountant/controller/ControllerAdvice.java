@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.LocalDateTime;
 
+/**
+ * @author David Santiago
+ */
 @RestControllerAdvice
 public class ControllerAdvice {
 

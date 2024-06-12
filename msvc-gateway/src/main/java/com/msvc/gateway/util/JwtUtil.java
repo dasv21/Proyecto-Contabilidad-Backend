@@ -7,6 +7,9 @@ import org.springframework.stereotype.Component;
 
 import java.security.Key;
 
+/**
+ * @author David Santiago
+ */
 @Component
 public class JwtUtil {
 

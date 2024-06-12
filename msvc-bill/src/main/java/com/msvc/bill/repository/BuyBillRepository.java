@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * @author David Santiago
+ */
 @Repository
 public interface BuyBillRepository extends JpaRepository<BuyBill, Long> {
 

@@ -10,6 +10,9 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+/**
+ * @author David Santiago
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

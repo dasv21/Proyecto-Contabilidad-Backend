@@ -5,6 +5,9 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.http.HttpStatus;
 
+/**
+ * @author David Santiago
+ */
 @Getter
 @Setter
 @ToString

@@ -1,5 +1,8 @@
 package com.msvc.client.projection;
 
+/**
+ * @author David Santiago
+ */
 public interface CompanyProjection {
     Long getId();
 

@@ -5,6 +5,9 @@ import com.msvc.bill.projection.BuyBillProjection;
 
 import java.util.List;
 
+/**
+ * @author David Santiago
+ */
 public interface BuyBillService {
 
     BuyBill create(BuyBill buyBill);

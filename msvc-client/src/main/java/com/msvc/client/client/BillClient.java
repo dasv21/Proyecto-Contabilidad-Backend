@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
+/**
+ * @author David Santiago
+ */
 @FeignClient(name = "msvc-gateway", url = "localhost:8080/api/v1/bill")
 public interface BillClient {
 

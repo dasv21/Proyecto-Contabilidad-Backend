@@ -5,6 +5,9 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
+/**
+ * @author David Santiago
+ */
 @Data
 @Builder
 public class ErrorDTO {
