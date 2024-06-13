@@ -1,26 +1,64 @@
-version: '3.8'
+version: "3"
+
+networks:
+  msvc-network:
 
 services:
-  msvc_config:
-    container_name: msvc_config
+  msvc-config:
+    container_name: msvc-config
     image: msvc-config-app:1.0.0
-    build: .
+    build:
+      context: ./msvc-config
+      dockerfile: Dockerfile
     ports:
       - "8888:8888"
-    depends_on:
-      - postgres
+    networks:
+      - msvc-network
 
-  postgres:
+  msvc-eureka:
+    container_name: msvc-eureka
+    image: msvc-eureka-app:1.0.0
+    build:
+      context: ./msvc-eureka
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    depends_on:
+      - msvc-config
+    restart: always
+    networks:
+      - msvc-network
+
+  bill-db:
     image: postgres:latest
-    container_name: postgres
+    container_name: bill-db
     restart: always
     ports:
       - "5432:5432"
     environment:
       POSTGRES_USER: dasv21
       POSTGRES_PASSWORD: dasv21
+      POSTGRES_DB: billDB
     volumes:
       - postgres-data:/var/lib/postgresql/data
+    networks:
+      - msvc-network
+
+  msvc-bill:
+    container_name: msvc-bill
+    image: msvc-bill-app:1.0.0
+    build:
+      context: ./msvc-bill
+      dockerfile: Dockerfile
+    ports:
+      - "9393:9393"
+    depends_on:
+      - msvc-config
+      - msvc-eureka
+      - bill-db
+    restart: always
+    networks:
+      - msvc-network
 
 volumes:
   postgres-data:

@@ -6,7 +6,7 @@ spring:
     name: msvc-bill
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/billDB
+    url: jdbc:postgresql://bill-db:5432/billDB
     username: dasv21
     password: dasv21
   jpa:
@@ -17,7 +17,7 @@ spring:
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: msvc-bill
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://msvc-eureka:8761/eureka
