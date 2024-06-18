@@ -1,4 +1,4 @@
-version: "3"
+version: "3.9"
 
 networks:
   msvc-network:
@@ -23,6 +23,20 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8761:8761"
+    depends_on:
+      - msvc-config
+    restart: always
+    networks:
+      - msvc-network
+
+  msvc-gateway:
+    container_name: msvc-gateway
+    image: msvc-gateway-app:1.0.0
+    build:
+      context: ./msvc-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
     depends_on:
       - msvc-config
     restart: always
@@ -56,6 +70,7 @@ services:
       - msvc-config
       - msvc-eureka
       - bill-db
+      - msvc-gateway
     restart: always
     networks:
       - msvc-network
