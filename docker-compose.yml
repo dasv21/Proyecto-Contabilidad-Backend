@@ -43,21 +43,6 @@ services:
     networks:
       - msvc-network
 
-  bill-db:
-    image: postgres:latest
-    container_name: bill-db
-    restart: always
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: dasv21
-      POSTGRES_PASSWORD: dasv21
-      POSTGRES_DB: billDB
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-    networks:
-      - msvc-network
-
   msvc-bill:
     container_name: msvc-bill
     image: msvc-bill-app:1.0.0
@@ -75,6 +60,55 @@ services:
     networks:
       - msvc-network
 
+  msvc-client:
+    container_name: msvc-client
+    image: msvc-client-app:1.0.0
+    build:
+      context: ./msvc-client
+      dockerfile: Dockerfile
+    ports:
+      - "9191:9191"
+    depends_on:
+      - msvc-config
+      - msvc-eureka
+      - client-db
+      - msvc-gateway
+    restart: always
+    networks:
+      - msvc-network
+
+# bases de datos:
+  bill-db:
+    image: postgres:16.3
+    container_name: bill-db
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: dasv21
+      POSTGRES_PASSWORD: dasv21
+      POSTGRES_DB: billDB
+    volumes:
+      - postgres-data-bill:/var/lib/postgresql/data
+    networks:
+      - msvc-network
+
+  client-db:
+    image: postgres:16.3
+    container_name: client-db
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: dasv21
+      POSTGRES_PASSWORD: dasv21
+      POSTGRES_DB: clientDB
+    volumes:
+      - postgres-data-client:/var/lib/postgresql/data
+    networks:
+      - msvc-network
+
 volumes:
-  postgres-data:
+  postgres-data-bill:
+  postgres-data-client:
 

@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @author David Santiago
  */
-@FeignClient(name = "msvc-gateway", url = "localhost:8080/api/v1/bill")
+@FeignClient(name = "msvc-gateway", url = "msvc-gateway:8080/api/v1/bill")
 public interface BillClient {
 
     @GetMapping("/buy-bill/company/{companyId}")
