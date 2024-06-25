@@ -43,6 +43,20 @@ services:
     networks:
       - msvc-network
 
+  msvc-authentication:
+    container_name: msvc-authentication
+    image: msvc-authentication-app:1.0.0
+    build:
+      context: ./msvc-authentication
+      dockerfile: Dockerfile
+    ports:
+      - "8383:8383"
+    depends_on:
+      - msvc-config
+    restart: always
+    networks:
+      - msvc-network
+
   msvc-bill:
     container_name: msvc-bill
     image: msvc-bill-app:1.0.0
@@ -78,6 +92,22 @@ services:
       - msvc-network
 
 # bases de datos:
+
+  authentication-db:
+    image: postgres:16.3
+    container_name: authentication-db
+    restart: always
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_USER: dasv21
+      POSTGRES_PASSWORD: dasv21
+      POSTGRES_DB: authenticationDB
+    volumes:
+      - postgres-data-authentication:/var/lib/postgresql/data
+    networks:
+      - msvc-network
+
   bill-db:
     image: postgres:16.3
     container_name: bill-db
@@ -111,4 +141,5 @@ services:
 volumes:
   postgres-data-bill:
   postgres-data-client:
+  postgres-data-authentication:
 

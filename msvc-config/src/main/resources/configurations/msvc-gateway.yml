@@ -35,22 +35,22 @@ spring:
           uri: lb://msvc-accountant
           predicates:
             - Path=/api/v1/accountant/**
-          #filters:
-          #  - AuthenticationFilter # Este es el filtro de autenticacion desativado mientras hago las patallas
+          filters:
+            - AuthenticationFilter
 
         - id: msvc-client
           uri: lb://msvc-client
           predicates:
             - Path=/api/v1/client/**
-          #filters:
-          #  - AuthenticationFilter
+          filters:
+            - AuthenticationFilter
 
         - id: msvc-bill
           uri: lb://msvc-bill
           predicates:
             - Path=/api/v1/bill/**
-          #filters:
-          #  - AuthenticationFilter
+          filters:
+            - AuthenticationFilter
 
         - id: msvc-authentication
           uri: lb://msvc-authentication

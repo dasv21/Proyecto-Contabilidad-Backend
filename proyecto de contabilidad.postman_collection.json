@@ -176,6 +176,16 @@
 						{
 							"name": "findAll",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkYXZpZCIsImlhdCI6MTcxOTMyOTE3OSwiZXhwIjoxNzE5MzMwNjE5fQ.kc6ZxgUVn4lfKWkfGBFYyZIsx9bmM26ZhuykMuQGwgk",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -364,6 +374,9 @@
 						{
 							"name": "findAll",
 							"request": {
+								"auth": {
+									"type": "noauth"
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -466,7 +479,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/api/v1/bill/buy-bill/company/1",
+									"raw": "http://localhost:8080/api/v1/bill/buy-bill/company/3",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -478,7 +491,7 @@
 										"bill",
 										"buy-bill",
 										"company",
-										"1"
+										"3"
 									]
 								}
 							},
@@ -523,6 +536,9 @@
 						{
 							"name": "findAll",
 							"request": {
+								"auth": {
+									"type": "noauth"
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -644,6 +660,104 @@
 							"response": []
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"david\",\n    \"password\": \"123456\",\n    \"email\": \"david@david.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"david\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "validateToken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkYXZpZCIsImlhdCI6MTcxOTM0Mjk2MSwiZXhwIjoxNzE5MzQ0NDAxfQ.Z5DZLXr--h4cSxP8PgH0QI-mF92CjnWqZHhdrCUGk_w\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/validate-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"validate-token"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

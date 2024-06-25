@@ -50,4 +50,14 @@ public class AuthService {
                 .token(jwtService.getToken(user))
                 .build();
     }
+
+    public boolean validateToken(String token) {
+        return jwtService.isTokenValid(token, getUserDetailsFromToken(token));
+    }
+
+    private UserDetails getUserDetailsFromToken(String token) {
+        String username = jwtService.getUsernameFromToken(token);
+        return userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User Failed"));
+    }
 }
