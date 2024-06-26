@@ -25,7 +25,6 @@ services:
       - "8761:8761"
     depends_on:
       - msvc-config
-    restart: always
     networks:
       - msvc-network
 
@@ -39,7 +38,6 @@ services:
       - "8080:8080"
     depends_on:
       - msvc-config
-    restart: always
     networks:
       - msvc-network
 
@@ -53,7 +51,6 @@ services:
       - "8383:8383"
     depends_on:
       - msvc-config
-    restart: always
     networks:
       - msvc-network
 
@@ -70,7 +67,6 @@ services:
       - msvc-eureka
       - bill-db
       - msvc-gateway
-    restart: always
     networks:
       - msvc-network
 
@@ -87,7 +83,6 @@ services:
       - msvc-eureka
       - client-db
       - msvc-gateway
-    restart: always
     networks:
       - msvc-network
 

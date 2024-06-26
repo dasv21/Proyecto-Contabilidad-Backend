@@ -11,12 +11,12 @@ import java.util.List;
 /**
  * @author David Santiago
  */
-@FeignClient(name = "msvc-gateway", url = "msvc-gateway:8080/api/v1/bill")
+@FeignClient(name = "msvc-bill")
 public interface BillClient {
 
-    @GetMapping("/buy-bill/company/{companyId}")
+    @GetMapping("/api/v1/bill/buy-bill/company/{companyId}")
     List<BuyBillDTO> findAllBuyBillByCompany(@PathVariable Long companyId);
 
-    @GetMapping("/sale-bill/company/{companyId}")
+    @GetMapping("/api/v1/bill/sale-bill/company/{companyId}")
     List<SaleBillDTO> findAllSaleBillByCompany(@PathVariable Long companyId);
 }
