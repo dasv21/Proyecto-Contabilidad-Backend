@@ -3,17 +3,25 @@ package com.msvc.authentication.services;
 import com.msvc.authentication.entities.Role;
 import com.msvc.authentication.entities.UserCredential;
 import com.msvc.authentication.repository.UserRepository;
+import com.msvc.authentication.request.ChangePasswordRequest;
+import com.msvc.authentication.request.ChangeRoleRequest;
 import com.msvc.authentication.request.LoginRequest;
 import com.msvc.authentication.request.RegisterRequest;
 import com.msvc.authentication.response.AuthResponse;
+import com.msvc.authentication.response.UserResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
+ * Service class for authentication and user management.
  * @author David Santiago
  */
 @Service
@@ -49,6 +57,29 @@ public class AuthService {
         return AuthResponse.builder()
                 .token(jwtService.getToken(user))
                 .build();
+    }
+
+    @Transactional
+    public void changePassword(ChangePasswordRequest request) {
+        UserCredential user = userRepository.findByUsername(request.getUsername())
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        user.setPassword(passwordEncoder.encode(request.getNewPassword()));
+        userRepository.save(user);
+    }
+
+    @Transactional
+    public void changeRole(ChangeRoleRequest request) {
+        UserCredential user = userRepository.findByUsername(request.getUsername())
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        user.setRole(Role.valueOf(request.getNewRole().toUpperCase()));
+        userRepository.save(user);
+    }
+
+    @Transactional(readOnly = true)
+    public List<UserResponse> listUsers() {
+        return userRepository.findAll().stream()
+                .map(user -> new UserResponse(user.getUsername(), user.getRole().name()))
+                .collect(Collectors.toList());
     }
 
     public boolean validateToken(String token) {

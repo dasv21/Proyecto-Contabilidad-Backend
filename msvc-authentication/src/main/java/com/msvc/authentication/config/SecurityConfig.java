@@ -12,6 +12,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+
 /**
  * @author David Santiago
  */
@@ -30,7 +31,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authRequest ->
                         authRequest
-                                .requestMatchers("api/v1/auth/**").permitAll()
+                                .requestMatchers("api/v1/auth/open/**").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement(sessionManager ->
