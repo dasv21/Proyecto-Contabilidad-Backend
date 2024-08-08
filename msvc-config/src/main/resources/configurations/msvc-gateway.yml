@@ -36,21 +36,21 @@ spring:
           predicates:
             - Path=/api/v1/accountant/**
           filters:
-            - AuthenticationFilter
+          #  - AuthenticationFilter
 
         - id: msvc-client
           uri: lb://msvc-client
           predicates:
             - Path=/api/v1/client/**
           filters:
-            - AuthenticationFilter
+          #  - AuthenticationFilter #desactivamos la autenticacion por ahora
 
         - id: msvc-bill
           uri: lb://msvc-bill
           predicates:
             - Path=/api/v1/bill/**
           filters:
-            - AuthenticationFilter
+          #  - AuthenticationFilter
 
         - id: msvc-authentication
           uri: lb://msvc-authentication
