@@ -8,7 +8,7 @@ que gestiona facturas de clientes se le asignan y guarda la indormacion de factu
 * Spring Boot 3.1.4
 * Spring Cloud 2022.0.4
 * Eclipse temurin 21.0.3 17_45-jdk
-* postgresql
+* Postgresql 16.3
 * SpringDoc OpenAPI 2.1.0
 * Docker 24.0.7
 
